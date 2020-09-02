@@ -1,13 +1,6 @@
-# react-simple-code-editor
+# Karl's react-simple-code-editor
 
-[![Build Status][build-badge]][build]
-[![MIT License][license-badge]][license]
-[![Version][version-badge]][package]
-[![Bundle size (minified + gzip)][bundle-size-badge]][bundle-size]
-
-Simple no-frills code editor with syntax highlighting.
-
-<a href="https://raw.githubusercontent.com/satya164/react-simple-code-editor/master/demo/demo.gif"><img src="https://raw.githubusercontent.com/satya164/react-simple-code-editor/master/demo/demo.gif" width="400"></a>
+A fork of the `react-simple-code-editor` project, with some additions to enable features like auto-fill or suggestions.
 
 ## Why
 
@@ -25,13 +18,7 @@ Several browser based code editors such as Ace, CodeMirror, Monaco etc. provide 
 ## Installation
 
 ```sh
-npm install react-simple-code-editor
-```
-
-or
-
-```sh
-yarn add react-simple-code-editor
+npm install krsce
 ```
 
 ## Usage
@@ -40,7 +27,7 @@ You need to use the editor with a third party library which provides syntax high
 
 ```js
 import React from 'react';
-import Editor from 'react-simple-code-editor';
+import Editor from 'krsce';
 import { highlight, languages } from 'prismjs/components/prism-core';
 import 'prismjs/components/prism-clike';
 import 'prismjs/components/prism-javascript';
@@ -77,7 +64,7 @@ Note that depending on your syntax highlighter, you might have to include additi
 The editor accepts all the props accepted by `textarea`. In addition, you can pass the following props:
 
 - `value` (`string`): Current value of the editor i.e. the code to display. This must be a [controlled prop](https://reactjs.org/docs/forms.html#controlled-components).
-- `onValueChange` (`string => mixed`): Callback which is called when the value of the editor changes. You'll need to update the value prop when this is called.
+- `onValueChange` (`string, number, number => mixed`): Callback which is called when the value of the editor changes. You'll need to update the value prop when this is called.
 - `highlight` (`string => string | React.Node`): Callback which will receive text to highlight. You'll need to return an HTML string or a React element with syntax highlighting using a library such as [`prismjs`](https://prismjs.com).
 - `tabSize` (`number`): The number of characters to insert when pressing tab key. For example, for 4 space indentation, `tabSize` will be `4` and `insertSpaces` will be `true`. Default: `2`.
 - `insertSpaces` (`boolean`): Whether to use spaces for indentation. Default: `true`. If you set it to `false`, you might also want to set `tabSize` to `1`.
@@ -89,7 +76,7 @@ The editor accepts all the props accepted by `textarea`. In addition, you can pa
 
 ## Demo
 
-[satya164.github.io/react-simple-code-editor](https://satya164.github.io/react-simple-code-editor)
+Run `yarn example` from the project root.
 
 ## How it works
 
@@ -128,14 +115,3 @@ To fix formatting errors, run the following:
 ```sh
 yarn lint -- --fix
 ```
-
-<!-- badges -->
-
-[build-badge]: https://img.shields.io/circleci/project/github/satya164/react-simple-code-editor/master.svg?style=flat-square
-[build]: https://circleci.com/gh/satya164/react-simple-code-editor
-[license-badge]: https://img.shields.io/npm/l/react-simple-code-editor.svg?style=flat-square
-[license]: https://opensource.org/licenses/MIT
-[version-badge]: https://img.shields.io/npm/v/react-simple-code-editor.svg?style=flat-square
-[package]: https://www.npmjs.com/package/react-simple-code-editor
-[bundle-size-badge]: https://img.shields.io/bundlephobia/minzip/react-simple-code-editor.svg?style=flat-square
-[bundle-size]: https://bundlephobia.com/result?p=react-simple-code-editor

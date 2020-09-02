@@ -1,7 +1,7 @@
 {
-  "name": "react-simple-code-editor",
-  "version": "0.11.0",
-  "description": "Simple no-frills code editor with syntax highlighting",
+  "name": "krsce",
+  "version": "0.0.0",
+  "description": "Karl's React Simple Code Editor",
   "keywords": [
     "code",
     "editor",
@@ -14,7 +14,6 @@
     "prebuild": "del lib/",
     "prepare": "yarn build",
     "example": "parcel example/index.html",
-    "gh-pages": "git branch -D gh-pages; git checkout -b gh-pages && rm -rf dist/ && parcel build example/App.js && git add -f dist/ && git commit -nm 'Publish website' && git push -fu origin gh-pages; git checkout @{-1}",
     "release": "release-it"
   },
   "husky": {
@@ -33,9 +32,9 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/satya164/react-simple-code-editor.git"
+    "url": "git+https://github.com/holub008/krsce"
   },
-  "author": "Satyajit Sahoo <satyajit.happy@gmail.com> (https://github.com/satya164/)",
+  "author": "Karl Holub <karljholub@gmail.com>",
   "license": "MIT",
   "devDependencies": {
     "@release-it/conventional-changelog": "^1.1.0",
