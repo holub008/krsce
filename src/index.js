@@ -6,7 +6,11 @@ import * as React from 'react';
 type Props = React.ElementConfig<'div'> & {
   // Props for the component
   value: string,
-  onValueChange: (value: string) => mixed,
+  onValueChange: (
+    value: string,
+    selectionStart: number,
+    selectionEnd: number
+  ) => mixed,
   highlight: (value: string) => string | React.Node,
   tabSize: number,
   insertSpaces: boolean,
@@ -198,7 +202,11 @@ export default class Editor extends React.Component<Props, State> {
     input.selectionStart = record.selectionStart;
     input.selectionEnd = record.selectionEnd;
 
-    this.props.onValueChange(record.value);
+    this.props.onValueChange(
+      record.value,
+      record.selectionStart,
+      record.selectionEnd
+    );
   };
 
   _applyEdits = (record: Record) => {
@@ -483,7 +491,7 @@ export default class Editor extends React.Component<Props, State> {
       true
     );
 
-    this.props.onValueChange(value);
+    this.props.onValueChange(value, selectionStart, selectionEnd);
   };
 
   _history: History = {
