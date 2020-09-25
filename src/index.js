@@ -35,6 +35,7 @@ type Props = React.ElementConfig<'div'> & {
   onBlur?: (e: FocusEvent) => mixed,
   onKeyUp?: (e: KeyboardEvent) => mixed,
   onKeyDown?: (e: KeyboardEvent) => mixed,
+  textAreaRef?: (el: mixed) => mixed,
 
   // Props for the hightlighted code’s pre element
   preClassName?: string,
@@ -532,6 +533,7 @@ export default class Editor extends React.Component<Props, State> {
       onFocus,
       onBlur,
       onKeyUp,
+      textAreaRef,
       /* eslint-disable no-unused-vars */
       onKeyDown,
       onValueChange,
@@ -555,7 +557,12 @@ export default class Editor extends React.Component<Props, State> {
     return (
       <div {...rest} style={{ ...styles.container, ...style }}>
         <textarea
-          ref={c => (this._input = c)}
+          ref={c => {
+            this._input = c;
+            if (textAreaRef) {
+              textAreaRef(c);
+            }
+          }}
           style={{
             ...styles.editor,
             ...styles.textarea,
