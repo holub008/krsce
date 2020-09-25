@@ -35,7 +35,7 @@ type Props = React.ElementConfig<'div'> & {
   onBlur?: (e: FocusEvent) => mixed,
   onKeyUp?: (e: KeyboardEvent) => mixed,
   onKeyDown?: (e: KeyboardEvent) => mixed,
-  textAreaRef?: (el: mixed) => mixed,
+  textAreaRef?: (el: HTMLTextAreaElement) => mixed,
 
   // Props for the hightlighted code’s pre element
   preClassName?: string,

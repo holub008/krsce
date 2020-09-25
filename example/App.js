@@ -35,6 +35,8 @@ class App extends React.Component<{}, State> {
     `,
   };
 
+  ref = undefined;
+
   setCursorFocus() {
     if (this.ref) {
       this.ref.selectionStart = 5;
@@ -63,11 +65,11 @@ class App extends React.Component<{}, State> {
               highlight={code => highlight(code, languages.jsx)}
               padding={10}
               className="container__editor"
-              textAreaRef={r => this.ref = r}
+              textAreaRef={r => (this.ref = r)}
             />
           </div>
           <div onClick={() => this.setCursorFocus()}>
-            DO IT!
+            <span>DO IT!</span>
           </div>
         </div>
       </main>
